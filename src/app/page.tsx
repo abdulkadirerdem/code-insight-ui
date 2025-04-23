@@ -58,7 +58,7 @@ export default function Home() {
 
     try {
       const response = await fetch(
-        `https://analyzer-agent-api.onrender.com/code-explainer/all-in-one`,
+        "https://analyzer-agent-api.onrender.com/code-explainer/all-in-one",
         {
           method: "POST",
           body: formData,
