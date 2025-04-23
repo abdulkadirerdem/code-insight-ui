@@ -1,8 +1,12 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 245;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @theme inline {
@@ -20,7 +24,65 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .markdown-content h1 {
+    @apply text-2xl font-bold my-4;
+  }
+
+  .markdown-content h2 {
+    @apply text-xl font-bold my-3;
+  }
+
+  .markdown-content h3 {
+    @apply text-lg font-semibold my-2;
+  }
+
+  .markdown-content p {
+    @apply my-2;
+  }
+
+  .markdown-content ul {
+    @apply list-disc pl-6 my-2;
+  }
+
+  .markdown-content ol {
+    @apply list-decimal pl-6 my-2;
+  }
+
+  .markdown-content pre {
+    @apply bg-gray-100 p-4 rounded-lg overflow-auto my-4;
+  }
+
+  .markdown-content code {
+    @apply font-mono text-sm;
+  }
+
+  .markdown-content blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic my-4;
+  }
+
+  .markdown-content hr {
+    @apply my-4 border-t border-gray-300;
+  }
+
+  .prose {
+    max-width: 100%;
+  }
+
+  .prose pre {
+    @apply bg-gray-100 p-4 rounded-lg overflow-auto my-4;
+  }
+
+  .prose code {
+    @apply font-mono text-sm;
+  }
 }
